@@ -27,15 +27,17 @@ Place the plugin under `/wp-content/plugins/woocommerce-binance-pay/` and **acti
 
 **中文**  
 1. 进入 **WooCommerce → 设置 → 付款 → Binance Pay (Static QR)** 并启用；  
-2. 上传你的 **收款二维码**（Binance App：发送与接收 → 收款）；  
-3. 填写 **API Key / Secret**（需能访问 `/sapi/v1/pay/transactions`，且账户已开通 Binance Pay）；  
-4. （可选）点击 **Open Debug Window** 检查能否读取最近一笔 Binance Pay 记录。
+2. 上传你的 **收款二维码**（Binance App：发送与接收 → 收款）；
+3. 权限为仅读即可，其他的不用勾选。
+4. 填写 **API Key / Secret**（需能访问 `/sapi/v1/pay/transactions`，且账户已开通 Binance Pay）（Binance App：搜索 → api管理页面）；  
+5. （可选）点击 **Open Debug Window** 检查能否读取最近一笔 Binance Pay 记录。
 
 **English**  
 1. Go to **WooCommerce → Settings → Payments → Binance Pay (Static QR)** and enable;  
-2. Upload your **Receiving QR** (Binance App: *Send & Receive → Receive*);  
-3. Enter **API Key / Secret** (must access `/sapi/v1/pay/transactions`, Binance Pay enabled);  
-4. *(Optional)* Click **Open Debug Window** to confirm the latest Binance Pay record is readable.
+2. Upload your **Receiving QR** (Binance App: *Send & Receive → Receive*);
+3. Set the permissions to read-only; you don't need to check the other options.
+4. Enter **API Key / Secret** (must access `/sapi/v1/pay/transactions`, Binance Pay enabled)(Binance App: Search → API Management Page);  
+5. *(Optional)* Click **Open Debug Window** to confirm the latest Binance Pay record is readable.
 
 ---
 
