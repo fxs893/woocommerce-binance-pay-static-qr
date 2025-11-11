@@ -76,5 +76,5 @@ If no match is found, verify the memo was pasted, the amount and asset match, an
 If this plugin helps you, feel free to tip via Binance Pay 🙏
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/fxs893/woocommerce-binance-pay-static-qr/refs/heads/main/44fb74656fea3699c388d7bf3ca69e5f-225x300.jpg" alt="Donate via Binance Pay" width="260">
+  <img src="https://raw.githubusercontent.com/fxs893/woocommerce-binance-pay-static-qr/refs/heads/main/63b9e6b1-321d-4252-bd65-6ee75ef87561.jpg" alt="Donate via Binance Pay" width="260">
 </p>
