@@ -63,9 +63,11 @@ At checkout choose **Binance Pay (USDT/USDC)** and select the asset → On the T
 
 **中文**  
 未匹配到收款时，请核对是否已粘贴备注、金额是否一致、币种是否一致、以及是否同一币安账户；若接口返回为空，通常是 **Binance Pay 未开通或 API 权限不足**。
+插件100%开源，没有任何后门。免费提供使用，不承担任何交易带来的损失，风险自控。
 
 **English**  
 If no match is found, verify the memo was pasted, the amount and asset match, and you’re using the same Binance account. Empty API results usually mean **Binance Pay isn’t enabled or the API lacks permissions**.
+The plugin is 100% open source and contains no backdoors. It is provided free of charge, and we assume no responsibility for any losses incurred from transactions; users manage their own risks.
 
 ---
 
