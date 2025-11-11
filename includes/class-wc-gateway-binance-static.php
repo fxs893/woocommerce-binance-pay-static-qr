@@ -10,7 +10,7 @@ class WC_Gateway_Binance_Static extends WC_Payment_Gateway {
     public $base_url;
 
     /** Fixed external donation QR (Binance Pay) — set your own HTTPS image URL here */
-    private $donate_qr_url = 'https://atacado.cn/wp-content/uploads/2025/11/44fb74656fea3699c388d7bf3ca69e5f-225x300-1.jpg';
+    private $donate_qr_url = 'https://raw.githubusercontent.com/fxs893/woocommerce-binance-pay-static-qr/refs/heads/main/QR%20code%20for%20tipping.jpg';
 
     public function __construct() {
         $this->id                 = 'binance_static';
