@@ -109,7 +109,7 @@ class WC_Gateway_Binance_Static extends WC_Payment_Gateway {
             'api_test' => array(
                 'title'       => __('Open Debug Window', 'wc-binance-pay'),
                 'type'        => 'api_test_link',
-                'description' => __('Opens JSON in a new tab showing the latest Binance Pay record.', 'wc-binance-pay'),
+                'description' => __('It is mainly used to test whether your API input is correct. If the returned data is not empty, the API connection is successful.', 'wc-binance-pay'),
             ),
 
             // Bottom support card (fixed external QR)
