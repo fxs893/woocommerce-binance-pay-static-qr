@@ -80,5 +80,5 @@ The plugin is 100% open source and contains no backdoors. It is provided free of
 If this plugin helps you, feel free to tip via Binance Pay 🙏
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/fxs893/woocommerce-binance-pay-static-qr/refs/heads/main/63b9e6b1-321d-4252-bd65-6ee75ef87561.jpg" alt="Donate via Binance Pay" width="260">
+  <img src="https://raw.githubusercontent.com/fxs893/woocommerce-binance-pay-static-qr/refs/heads/main/QR%20code%20for%20tipping.jpg" alt="Donate via Binance Pay" width="260">
 </p>
