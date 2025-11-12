@@ -277,20 +277,112 @@ public function thankyou_page($order_id) {
     .wc-bp-progress{height:8px;background:#f6f6f6;border-radius:999px;overflow:hidden;display:none;margin-top:10px;}
     .wc-bp-progress>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,#f0b90b,#ffd666);transition:width .25s;}
     /* 固定支付信息标题中的资产图标大小，避免被主题全局样式放大 */
-.wc-bp-asset-logo{
-  height: 28px !important;
-  max-height: 28px !important;
-  width: auto !important;
-  display: inline-block !important;
-  vertical-align: middle !important;
-  object-fit: contain;
+    .wc-bp-asset-logo{
+      height: 28px !important;
+      max-height: 28px !important;
+      width: auto !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+      object-fit: contain;
+    }
+    /* 保险：限制标题区任何 img 的最大高 */
+    .wc-bp-hd .wc-bp-title img{
+      max-height: 28px !important;
+      height: 28px !important;
+      width: auto !important;
+    }
+/* ---------- Memo 强提醒（优化版） ---------- */
+:root{
+  --bp-warn-bg: #fff7d6;
+  --bp-warn-border: #f2cd5c;
+  --bp-warn-text: #6f4a00;   /* 比之前更深，提升可读性 */
+  --bp-warn-ico: #b98500;
+  --bp-focus: rgba(240,185,11,.4);
 }
-/* 保险：限制标题区任何 img 的最大高 */
-.wc-bp-hd .wc-bp-title img{
-  max-height: 28px !important;
-  height: 28px !important;
-  width: auto !important;
+
+/* 暗色模式优化 */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bp-warn-bg: #2a2413;
+    --bp-warn-border: #6a5415;
+    --bp-warn-text: #f3e4b3;
+    --bp-warn-ico: #ffd666;
+    --bp-focus: rgba(255,214,102,.35);
+  }
 }
+
+.wc-bp-alert{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+
+  background: var(--bp-warn-bg);
+  border: 1px solid var(--bp-warn-border);
+  color: var(--bp-warn-text);
+
+  border-radius: 12px;
+  padding: 14px 16px;
+
+  font-size: 14px;
+  line-height: 1.55;
+
+  /* 轻微进场动画 */
+  opacity: 0;
+  transform: translateY(4px);
+  animation: bpFadeIn .28s ease-out forwards;
+}
+
+/* 减少动态偏好：禁用动画 */
+@media (prefers-reduced-motion: reduce){
+  .wc-bp-alert{ animation: none; opacity:1; transform:none; }
+}
+
+@keyframes bpFadeIn{
+  to { opacity: 1; transform: none; }
+}
+
+.wc-bp-alert strong{
+  font-weight: 800;
+  color: var(--bp-warn-ico);
+}
+
+/* 图标更清晰且不挤占文本 */
+.wc-bp-alert-ico{
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  display:inline-grid;
+  place-items:center;
+  font-size: 16px;
+  line-height: 1;
+  margin-top: 2px;
+
+  background: var(--bp-warn-ico);
+  color: #111;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+}
+
+/* 内联链接（如果你加了帮助链接） */
+.wc-bp-alert a{
+  color: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+.wc-bp-alert a:hover{ text-decoration-style: solid; }
+
+/* 移动端留白更友好 */
+@media (max-width: 520px){
+  .wc-bp-alert{ padding: 12px 14px; border-radius: 10px; }
+}
+
+/* 可聚焦（无障碍）：若以 role="alert" 外再包一层可聚焦容器，可复用此样式 */
+.wc-bp-alert:focus{
+  outline: 2px solid var(--bp-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--bp-focus) inset;
+}
+
 
     </style>';
 
@@ -346,6 +438,18 @@ public function thankyou_page($order_id) {
                                 <button type="button" class="wc-bp-btn wc-bp-btn--copy" onclick="wcBpCopyMemo()">Copy Memo</button>
                             </div>
                         </div>
+                        
+                        
+                        <div class="wc-bp-alert" role="alert" aria-live="polite">
+                          <span class="wc-bp-alert-ico" aria-hidden="true">!</span>
+                          <div class="wc-bp-alert-text">
+                            <strong>Important:</strong>
+                            You <span class="wc-bp-underline">must paste the memo above</span> into the “Note/Remark” field in Binance Pay.
+                            Payments <span class="wc-bp-underline">without the memo</span> cannot be matched automatically, and the order will remain <em>On-Hold</em>.
+                          </div>
+                        </div>
+
+
 
                         <form id="binance-check-form" style="width:100%;margin-top:8px;">
                             <input type="hidden" name="' . esc_attr($nonce_field) . '" value="' . esc_attr($nonce_value) . '">
